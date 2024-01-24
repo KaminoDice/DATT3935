@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sketch</title>
+        <script src="libraries/p5.min.js"></script> 
+        <script src="libraries/p5.sound.min.js"></script>
+        
+
+    </head>
+
+    <body>
+        <h2>Choose a sketch</h2>
+        <form>
+            <input type="radio" id="script1" name="script" value="sketch_lab101.js">
+            <label for="script1">Lab1 01</label><br>
+            <input type="radio" id="script2" name="script" value="sketch_lab102.js">
+            <label for="script2">Lab1 02</label><br>
+            <input type="radio" id="script2" name="script" value="sketch_lab201.js">
+            <label for="script2">Lab2 01</label><br>
+            <input type="radio" id="script2" name="script" value="sketch_lab202.js" checked>
+            <label for="script2">Lab2 02</label><br>
+        </form>
+
+        <script id="MyJavaScript" src="sketch_lab202.js"></script>
+
+        <button onclick="changeMyJavaScript()">Render</button>
+        <script>
+            function changeMyJavaScript(){
+                var newScript = document.createElement('script');
+                var script = document.querySelector('input[name="script"]:checked').value;
+                newScript.type = 'text/javascript';
+                newScript.src = script; 
+                document.getElementsByTagName('head')[0].appendChild(newScript);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Sketch</title>
+    
+        <link rel="stylesheet" type="text/css" href="style.css">
+    
+
+        <script src="libraries/p5.sound.min.js"></script>
+      </head>
+
+
+<body>
+
+<h2>Choose a sketch</h2>
+<form>
+  <input type="radio" id="script1" name="script" value="script1">
+  <label for="script1">Lab2 01</label><br>
+  <input type="radio" id="script2" name="script" value="script2">
+  <label for="script2">Lab2 02</label><br>
+</form>
+
+<script>
+// 获取所有的radio按钮
+var radios = document.getElementsByName('script');
+
+// 为每个radio按钮添加监听事件
+for(var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener('change', function() {
+        // 根据选中的radio执行不同的脚本
+        if(this.value === 'script1') {
+            import('./sketch_lab201.js')
+            .then((module) => {
+                // 在这里调用脚本1的函数
+            })
+            .catch((error) => {
+                console.error(`脚本1加载失败: ${error}`);
+            });
+        } else if(this.value === 'script2') {
+            import('./sketch_lab202.js')
+            .then((module) => {
+                // 在这里调用脚本2的函数
+            })
+            .catch((error) => {
+                console.error(`脚本2加载失败: ${error}`);
+            });
+        }
+    });
+}
+</script>
+
+</body>
+</html>
